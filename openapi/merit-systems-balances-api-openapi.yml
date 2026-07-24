@@ -1,0 +1,218 @@
+openapi: 3.1.0
+info:
+  title: AgentCash Balances API
+  description: Wallet management, search, and payment APIs for AgentCash.
+  version: 0.1.2
+  x-guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  contact:
+    name: Merit Systems
+    url: https://merit.systems
+servers:
+- url: https://agentcash.dev
+tags:
+- name: Balances
+paths:
+  /users/{login}/balance:
+    get:
+      operationId: getUserBalanceByLogin
+      summary: Get user balance by GitHub login
+      tags:
+      - Balances
+      parameters:
+      - name: login
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: User balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserBalance'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /user/{user_id}/balance:
+    get:
+      operationId: getUserBalanceByGithubId
+      summary: Get user balance by user ID
+      tags:
+      - Balances
+      parameters:
+      - name: user_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: User balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/UserBalance'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /repos/{owner}/{repo}/balance:
+    get:
+      operationId: getRepoBalanceByName
+      summary: Get repository balance by owner/repo name
+      tags:
+      - Balances
+      parameters:
+      - name: owner
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: repo
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Repository balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepoBalance'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+  /repositories/{repo_id}/balance:
+    get:
+      operationId: getRepoBalanceByRepoId
+      summary: Get repository balance by repository ID
+      tags:
+      - Balances
+      parameters:
+      - name: repo_id
+        in: path
+        required: true
+        schema:
+          type: integer
+      responses:
+        '200':
+          description: Repository balance
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RepoBalance'
+        '401':
+          $ref: '#/components/responses/Unauthorized'
+        '404':
+          $ref: '#/components/responses/NotFound'
+components:
+  responses:
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+  schemas:
+    Amount:
+      type: object
+      properties:
+        raw:
+          type: string
+        formatted:
+          type: string
+      required:
+      - raw
+      - formatted
+    Error:
+      type: object
+      description: Standard error envelope returned on non-2xx responses.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        request_id:
+          type: string
+      required:
+      - status
+      - message
+    RepoBalance:
+      type: object
+      properties:
+        repo_id:
+          type: integer
+        owner:
+          type: string
+        repo:
+          type: string
+        balance:
+          $ref: '#/components/schemas/Amount'
+      required:
+      - repo_id
+      - owner
+      - repo
+      - balance
+    UserBalance:
+      type: object
+      properties:
+        user_id:
+          type: integer
+        login:
+          type: string
+        balance:
+          $ref: '#/components/schemas/Amount'
+      required:
+      - user_id
+      - login
+      - balance
+  securitySchemes:
+    siwx:
+      type: apiKey
+      in: header
+      name: SIGN-IN-WITH-X

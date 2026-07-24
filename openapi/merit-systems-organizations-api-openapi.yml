@@ -1,0 +1,68 @@
+openapi: 3.1.0
+info:
+  title: AgentCash Balances Organizations API
+  description: Wallet management, search, and payment APIs for AgentCash.
+  version: 0.1.2
+  x-guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  contact:
+    name: Merit Systems
+    url: https://merit.systems
+servers:
+- url: https://agentcash.dev
+tags:
+- name: Organizations
+paths:
+  /api/organizations:
+    get:
+      operationId: organizations
+      summary: List your organizations
+      tags:
+      - Organizations
+      security:
+      - siwx: []
+      responses:
+        '200':
+          description: Successful response
+        '402':
+          description: Authentication Required
+components:
+  securitySchemes:
+    siwx:
+      type: apiKey
+      in: header
+      name: SIGN-IN-WITH-X

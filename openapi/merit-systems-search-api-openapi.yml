@@ -1,0 +1,143 @@
+openapi: 3.1.0
+info:
+  title: AgentCash Balances Search API
+  description: Wallet management, search, and payment APIs for AgentCash.
+  version: 0.1.2
+  x-guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  guidance: 'AgentCash exposes SIWX and paid endpoints for wallet-connected agents.
+
+
+    ## SIWX endpoints (free, wallet identity required)
+
+    - POST /api/search — search for relevant API origins by natural language query
+
+    - POST /api/invite-codes — manage invite codes
+
+    - POST /api/organizations — manage organizations
+
+
+    ## Paid endpoints (x402 or MPP)
+
+    - POST /api/send — send USDC on Base or Solana
+
+
+    Registration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).'
+  contact:
+    name: Merit Systems
+    url: https://merit.systems
+servers:
+- url: https://agentcash.dev
+tags:
+- name: Search
+paths:
+  /api/search:
+    post:
+      operationId: search
+      summary: Search for relevant API origins by natural language query
+      tags:
+      - Search
+      security:
+      - siwx: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  minLength: 1
+                  maxLength: 500
+                broad:
+                  type: boolean
+                limit:
+                  type: integer
+                  minimum: 1
+                  maximum: 50
+                page:
+                  type: integer
+                  minimum: 1
+                  maximum: 9007199254740991
+              required:
+              - query
+      responses:
+        '200':
+          description: Successful response
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version:
+                    type: number
+                    const: 1
+                  results:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        method:
+                          type: string
+                        path:
+                          type: string
+                        summary:
+                          type: string
+                        semanticDescription:
+                          type: string
+                        authMode:
+                          type: string
+                        price:
+                          type: string
+                        score:
+                          type: number
+                        origin:
+                          type: object
+                          properties:
+                            url:
+                              type: string
+                            title:
+                              type: string
+                            description:
+                              type: string
+                            protocols:
+                              type: array
+                              items:
+                                type: string
+                  query:
+                    type: string
+                  page:
+                    type: number
+                  totalResults:
+                    type: number
+                required:
+                - version
+                - results
+                - query
+                - page
+                - totalResults
+        '402':
+          description: Authentication Required
+components:
+  securitySchemes:
+    siwx:
+      type: apiKey
+      in: header
+      name: SIGN-IN-WITH-X
