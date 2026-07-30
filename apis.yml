@@ -1,22 +1,206 @@
 aid: merit-systems
 name: Merit Systems
-description: Merit Systems is a company surfaced as a portfolio company of a16z and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: >-
+  Merit Systems builds the infrastructure for open agentic commerce — the
+  discovery and payment rails that let AI agents find and pay for the APIs,
+  data, and services they need. Merit originated the "open agentic commerce"
+  framing and the x402 ecosystem index (x402scan), and ships a developer stack
+  for pay-per-call APIs: AgentCash (an MCP server, CLI, and USDC wallet that
+  lets any agent call payment-protected APIs over x402/MPP micropayments),
+  @agentcash/router (a framework for building x402/MPP-compatible endpoints),
+  the Echo "User Pays" AI SDK, and the Merit Terminal financial stack for
+  funding open-source contributors and repositories. Backed by a $10M seed
+  round led by a16z and Blockchain Capital.
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://agentcash.dev/logo-light-striped.svg
 url: https://raw.githubusercontent.com/api-evangelist/merit-systems/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
 x-backed-by:
 - a16z
-x-tier: stub
+- Blockchain Capital
+x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-20'
 tags:
 - Company
-apis: []
+- Agentic Commerce
+- Payments
+- x402
+- Micropayments
+- Model Context Protocol
+- Stablecoins
+- API Discovery
+- Open Source
+- Developer Tools
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
 - FN: APIs.json
   email: info@apis.io
+- FN: Merit Systems
+  email: info@merit.systems
+apis:
+- aid: merit-systems:merit-systems-balances-api
+  name: Merit Systems Balances API
+  description: The Balances API from Merit Systems — 4 operation(s) for balances.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Balances
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-balances-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+- aid: merit-systems:merit-systems-invite-codes-api
+  name: Merit Systems Invite Codes API
+  description: The Invite Codes API from Merit Systems — 1 operation(s) for invite codes.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Invite Codes
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-invite-codes-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+- aid: merit-systems:merit-systems-organizations-api
+  name: Merit Systems Organizations API
+  description: The Organizations API from Merit Systems — 1 operation(s) for organizations.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Organizations
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-organizations-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+- aid: merit-systems:merit-systems-payments-api
+  name: Merit Systems Payments API
+  description: The Payments API from Merit Systems — 1 operation(s) for payments.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Payments
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-payments-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+- aid: merit-systems:merit-systems-search-api
+  name: Merit Systems Search API
+  description: The Search API from Merit Systems — 1 operation(s) for search.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-search-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+- aid: merit-systems:merit-systems-send-api
+  name: Merit Systems Send API
+  description: The Send API from Merit Systems — 1 operation(s) for send.
+  humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
+  baseURL: https://api.merit.systems/v1
+  tags:
+  - Send
+  properties:
+  - type: OpenAPI
+    url: openapi/merit-systems-send-api-openapi.yml
+  - type: APIReference
+    url: https://github.com/merit-systems/sdk/blob/master/api.md
+  - type: Documentation
+    url: https://agentcash.dev/docs
+common:
+- type: Website
+  url: https://merit.systems
+- type: DeveloperPortal
+  url: https://agentcash.dev/docs
+- type: Documentation
+  url: https://agentcash.dev/docs
+- type: APIReference
+  url: https://github.com/merit-systems/sdk/blob/master/api.md
+- type: GettingStarted
+  url: https://agentcash.dev/install
+- type: Blog
+  url: https://merit.systems/blog
+- type: GitHubOrganization
+  url: https://github.com/merit-systems
+- type: Support
+  url: https://github.com/merit-systems/help-us
+- type: SignUp
+  url: https://agentcash.dev/onboard
+- type: TermsOfService
+  url: https://merit.systems/terms
+- type: PrivacyPolicy
+  url: https://merit.systems/privacy
+- type: LLMsTxt
+  url: llms/merit-systems-llms.txt
+- type: Packages
+  url: packages/merit-systems-packages.yml
+- type: SDKs
+  url: packages/merit-systems-packages.yml
+- type: CLI
+  url: cli/merit-systems-cli.yml
+- type: MCPServer
+  url: mcp/merit-systems-mcp.yml
+- type: AgentSkill
+  url: skills/_index.yml
+- type: Authentication
+  url: authentication/merit-systems-authentication.yml
+- type: Conventions
+  url: conventions/merit-systems-conventions.yml
+- type: ErrorCatalog
+  url: errors/merit-systems-problem-types.yml
+- type: DataModel
+  url: data-model/merit-systems-data-model.yml
+- type: Lifecycle
+  url: lifecycle/merit-systems-lifecycle.yml
+- type: ChangeLog
+  url: changelog/merit-systems-changelog.yml
+- type: Conformance
+  url: conformance/merit-systems-conformance.yml
+- type: AgenticAccess
+  url: agentic-access/merit-systems-agentic-access.yml
+- type: Sandbox
+  url: sandbox/merit-systems-sandbox.yml
+- type: VulnerabilityDisclosure
+  url: security/merit-systems-vulnerability-disclosure.yml
+- type: Security
+  url: https://github.com/merit-systems/agentcash-router/blob/main/SECURITY.md
+- type: Overlay
+  url: overlays/merit-systems-agentcash-overlay.yaml
+- type: Overlay
+  url: overlays/merit-systems-merit-api-overlay.yaml
+x-enrichment:
+  date: '2026-07-20'
+  status: enriched
+  artifacts_added: 21
+  pass: local-v1
