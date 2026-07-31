@@ -1,0 +1,39 @@
+# Merit Systems
+
+> Merit Systems builds the infrastructure for open agentic commerce, the discovery and payment rails that let AI agents find and pay for the APIs, data, and services they need. Merit originated the "open agentic commerce" framing and the x402 ecosystem index (x402scan).
+
+## Key pages
+- [Home](https://merit.systems/): What Merit Systems is building.
+- [Blog](https://merit.systems/blog): Essays and announcements from the team.
+- [Glossary](https://merit.systems/glossary): Citable definitions of x402, agentic commerce, and the open agentic stack.
+- [Authors](https://merit.systems/authors): The people behind the writing.
+
+## Products
+- [x402scan](https://x402scan.com): Network explorer and reputation layer for the x402 payment protocol.
+- [AgentCash](https://agentcash.dev): Developer SDK for agentic commerce and LLM-powered wallets.
+- [Poncho](https://tryponcho.com): Consumer payments and tool access powered by x402.
+
+## Glossary
+- [ACP (Agentic Commerce Protocol)](https://merit.systems/glossary/what-is-acp): ACP, or the Agentic Commerce Protocol, is an open standard from OpenAI and Stripe that lets a buyer's AI agent complete purchases from a business inside a chat experience. It powers Instant Checkout in ChatGPT, while the business stays the merchant of record and keeps control of its catalog and fulfillment.
+- [Agentic Commerce](https://merit.systems/glossary/what-is-agentic-commerce): Agentic commerce is commerce carried out by AI agents acting on a person or business's behalf. Instead of a human clicking buy, an agent discovers options, makes a decision, and pays, often programmatically and per use. It spans agents buying data, APIs, compute, and goods without a human completing each transaction.
+- [MPP (Machine Payments Protocol)](https://merit.systems/glossary/what-is-mpp): MPP, or the Machine Payments Protocol, is a protocol that lets software agents pay servers for API access on a per-request basis, with no human accounts or subscriptions. Like x402, it gives machines a native way to transact. Merit Systems' MPPScan indexes the MPP ecosystem, tracking its servers, agents, transactions, and volume.
+- [Open Agentic Commerce](https://merit.systems/glossary/what-is-open-agentic-commerce): Open agentic commerce is agentic commerce built on open, permissionless protocols rather than a single company's closed platform. Any agent can discover and pay any service, and any developer can offer one, with no gatekeeper. Merit Systems uses the term for the open alternative to walled-garden checkouts like in-chat purchases.
+- [UCP (Universal Commerce Protocol)](https://merit.systems/glossary/what-is-ucp): UCP, or the Universal Commerce Protocol, is an open standard led by Google with retailers like Shopify, Etsy, Target, and Walmart that lets AI agents discover products, build carts, and check out across many merchants without a custom integration for each. It covers the full shopping lifecycle and carries cryptographic proof of user consent.
+- [x402](https://merit.systems/glossary/what-is-x402): x402 is an open payment protocol that lets software, including AI agents, pay for APIs and digital services over HTTP using stablecoins, with no accounts, API keys, or manual signups. It revives the dormant HTTP 402 "Payment Required" status code so a server can request payment and a client can settle it programmatically inside a single request.
+
+## Blog
+- [Introducing @agentcash/router](https://merit.systems/blog/introducing-router): @agentcash/router is the library we've used to build every paid endpoint at Merit Systems. Today, it's open source.
+- [State of Agentic Commerce: July 2026](https://merit.systems/blog/state-of-agentic-commerce-july-2026): The first issue of Merit's monthly read on agentic commerce. July 2026: 13.5 million x402 payments, MPP's fast ramp, and the Open USD consortium taking stablecoins mainstream.
+- [AgentCash x Honcho: Pay-per-query memory for agents](https://merit.systems/blog/agentcash-honcho): Honcho's reasoning-powered memory layer is now accessible to any AI agent through AgentCash.
+- [AgentCash x Minerva: Consumer Intelligence for Every Agent](https://merit.systems/blog/agentcash-minerva): Minerva's 250M+ consumer profiles are now accessible to any AI agent through AgentCash.
+- [The Age of Open Agentic Commerce](https://merit.systems/blog/open-agentic-commerce): Checkout in ChatGPT is an incremental improvement. Open Agentic Commerce will reshape society as the internet did in the early 2000s.
+- [Emergence: Let a Billion APIs Compose](https://merit.systems/blog/x402): Our thesis is that the best agents will surprise and delight us. They will emerge, instead of being hand-wired from scratch.
+- [Echo: The Micro-App Revolution](https://merit.systems/blog/echo): As AI becomes a utility, the platform era gives way to a long tail of small, opinionated apps that do one job perfectly and monetize per use.
+- [Launching the Terminal and a new financial stack for open-source software](https://merit.systems/blog/launch): A new financial stack for open-source software. Attract and pay open source contributors with the Terminal.
+- [Announcing Our $10M Seed Round](https://merit.systems/blog/fundraise): Announcing our $10M seed round led by a16z and Blockchain Capital to build the future of open source economics.
+- [Open Source Capitalism](https://merit.systems/blog/manifesto): A new economic engine for innovation: our manifesto for the future of open source.
+
+## Links
+- Website: https://merit.systems
+- Twitter/X: https://x.com/merit_systems
+- GitHub: https://github.com/Merit-Systems

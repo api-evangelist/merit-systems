@@ -1,0 +1,25 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/merit-systems/agentcash-router/blob/main/CHANGELOG.md
+note: >-
+  AgentCash / @agentcash/router expose test networks and a keyless local-dev
+  path for building and testing paid endpoints without moving real funds.
+  Values below are published by the provider; never invented.
+test_networks:
+  - base-sepolia   # EVM testnet (CAIP-2 eip155)
+mainnet_networks:
+  - base
+  - solana
+  - tempo
+local_dev:
+  keyless: true
+  description: >-
+    Placeholder Coinbase CDP key values are a supported local-dev path — paid
+    routes serve correct 402 Payment Required challenges via the hardcoded
+    facilitator baseline. Real CDP keys are only needed to actually verify and
+    settle payments.
+  env:
+    - EVM_PAYEE_ADDRESS
+    - CDP_API_KEY_ID
+    - CDP_API_KEY_SECRET
+docs: https://agentcash.dev/docs

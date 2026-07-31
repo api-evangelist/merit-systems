@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: derived
+format: custom-json
+source:
+  - openapi/merit-systems-merit-api-openapi.yml
+  - https://github.com/merit-systems/sdk/blob/master/api.md
+envelope:
+  shape: '{ status: number, message: string, request_id?: string }'
+  media_type: application/json
+  fields:
+    status: HTTP status code (integer)
+    message: Human-readable error message
+    request_id: Optional correlation id for support
+problems:
+  - status: 400
+    title: Bad Request
+    sdk_error: BadRequestError
+    remediation: Check request parameters (e.g. page_size <= 100, valid group_id UUID).
+    source_operation: openapi/merit-systems-merit-api-openapi.yml#getPaymentsBySender
+  - status: 401
+    title: Unauthorized
+    sdk_error: UnauthorizedError
+    remediation: Provide a valid x-api-key header.
+    source_operation: openapi/merit-systems-merit-api-openapi.yml#getUserBalanceByLogin
+  - status: 402
+    title: Payment Required
+    remediation: AgentCash paid endpoint — settle the x402/MPP payment (USDC) to proceed.
+    source_operation: openapi/merit-systems-agentcash-openapi.json#send
+  - status: 404
+    title: Not Found
+    sdk_error: NotFoundError
+    remediation: Resource (user, repo, or record) does not exist.
+    source_operation: openapi/merit-systems-merit-api-openapi.yml#getUserBalanceByLogin
+  - status: 500
+    title: Internal Server Error
+    sdk_error: InternalServerError
+    remediation: Retry later; contact support with the request_id if it persists.

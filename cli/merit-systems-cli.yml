@@ -1,0 +1,30 @@
+generated: '2026-07-20'
+method: searched
+source: https://agentcash.dev/skill.md
+clis:
+  - name: agentcash
+    description: >-
+      First-party CLI for AgentCash — onboard a USDC wallet and let an agent
+      discover and call x402/MPP payment-protected APIs per call.
+    homepage: https://agentcash.dev
+    docs: https://agentcash.dev/install
+    package: agentcash
+    install:
+      - method: npx
+        command: npx agentcash@latest onboard
+      - method: mcpb
+        command: https://agentcash.dev/agentcash.mcpb
+    commands:
+      - group: setup
+        commands:
+          - onboard        # set up wallet + core skill (optional invite code)
+          - redeem         # redeem an invite code for credits
+          - fund           # open the funding flow to add USDC
+      - group: wallet
+        commands:
+          - wallet info    # show total USDC balance + deposit / network addresses
+      - group: usage
+        commands:
+          - search         # search for relevant paid API origins by query
+          - discover       # inspect how to use a specific resource / origin
+          - fetch          # make a paid request to a URL

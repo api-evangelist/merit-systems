@@ -1,0 +1,32 @@
+generated: '2026-07-20'
+method: searched
+source:
+  - https://github.com/merit-systems/sdk/blob/master/api.md
+  - https://agentcash.dev/openapi.json
+  - https://github.com/merit-systems/agentcash-router/blob/main/SECURITY.md
+versioning:
+  merit_api:
+    scheme: uri-path
+    current: v1
+    example: https://api.merit.systems/v1
+  agentcash_api:
+    scheme: semver
+    current: 0.1.2
+  packages:
+    scheme: changesets-semver
+    note: "@agentcash/router follows semver; security fixes ship as patch releases of the latest minor."
+supported_versions:
+  subject: "@agentcash/router"
+  supported: ["latest 1.x"]
+  unsupported: ["< 1.0"]
+  policy: >-
+    Security fixes are released as patch versions of the latest minor; fixes are
+    not backported to older minors.
+  source: https://github.com/merit-systems/agentcash-router/blob/main/SECURITY.md
+changelog: changelog/merit-systems-changelog.yml
+status_page:
+  found: false
+  note: No public status page located as of 2026-07-20.
+deprecation:
+  formal_api_policy: false
+  note: No formal API deprecation / Sunset-header policy published for the REST APIs.

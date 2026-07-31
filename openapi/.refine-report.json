@@ -1,0 +1,24 @@
+{
+  "provider": "merit-systems",
+  "sources": [
+    "merit-systems-balances-api-openapi.yml",
+    "merit-systems-invite-codes-api-openapi.yml",
+    "merit-systems-organizations-api-openapi.yml",
+    "merit-systems-payments-api-openapi.yml",
+    "merit-systems-search-api-openapi.yml",
+    "merit-systems-send-api-openapi.yml"
+  ],
+  "outputs": [
+    "merit-systems-balances-api-openapi.yml",
+    "merit-systems-invite-codes-api-openapi.yml",
+    "merit-systems-organizations-api-openapi.yml",
+    "merit-systems-payments-api-openapi.yml",
+    "merit-systems-search-api-openapi.yml",
+    "merit-systems-send-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

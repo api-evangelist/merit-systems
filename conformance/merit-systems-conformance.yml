@@ -1,0 +1,31 @@
+generated: '2026-07-20'
+method: derived
+source:
+  - openapi/merit-systems-agentcash-openapi.json
+  - openapi/merit-systems-merit-api-openapi.yml
+  - https://github.com/merit-systems/x402scan-mcp
+standards:
+  - id: openapi-3.1
+    conforms: true
+    evidence: AgentCash publishes an OpenAPI 3.1.0 document at agentcash.dev/openapi.json.
+  - id: x402
+    conforms: true
+    evidence: Native x402 (HTTP 402) micropayment support; x-payment-info on paid operations; x402scan reference index.
+  - id: mpp
+    conforms: true
+    evidence: Machine Payments Protocol supported by @agentcash/router and AgentCash.
+  - id: mcp
+    conforms: true
+    evidence: Ships x402scan MCP server (manifest 0.3, 4 tools) and the AgentCash MCP server.
+  - id: siwx
+    conforms: true
+    evidence: Sign In With X wallet auth header (SIGN-IN-WITH-X) on AgentCash free endpoints.
+  - id: caip-2
+    conforms: true
+    evidence: "@agentcash/router enforces CAIP-2 network identifiers (eip155:*, solana:*) at the type level."
+  - id: rfc9457-problem-details
+    conforms: false
+    evidence: Uses a custom {status,message,request_id} error envelope, not application/problem+json.
+  - id: oauth2
+    conforms: false
+    evidence: No oauth2 security schemes; API-key and wallet/payment auth only.

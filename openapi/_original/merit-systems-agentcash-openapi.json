@@ -1,0 +1,327 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "AgentCash",
+    "description": "Wallet management, search, and payment APIs for AgentCash.",
+    "version": "0.1.2",
+    "x-guidance": "AgentCash exposes SIWX and paid endpoints for wallet-connected agents.\n\n## SIWX endpoints (free, wallet identity required)\n- POST /api/search — search for relevant API origins by natural language query\n- POST /api/invite-codes — manage invite codes\n- POST /api/organizations — manage organizations\n\n## Paid endpoints (x402 or MPP)\n- POST /api/send — send USDC on Base or Solana\n\nRegistration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).",
+    "guidance": "AgentCash exposes SIWX and paid endpoints for wallet-connected agents.\n\n## SIWX endpoints (free, wallet identity required)\n- POST /api/search — search for relevant API origins by natural language query\n- POST /api/invite-codes — manage invite codes\n- POST /api/organizations — manage organizations\n\n## Paid endpoints (x402 or MPP)\n- POST /api/send — send USDC on Base or Solana\n\nRegistration is handled directly by x402scan (POST /api/x402/registry/register-origin) and mppscan (POST /api/mpp/register).",
+    "contact": {
+      "name": "Merit Systems",
+      "url": "https://merit.systems"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://agentcash.dev"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Invite Codes"
+    },
+    {
+      "name": "Organizations"
+    },
+    {
+      "name": "Search"
+    },
+    {
+      "name": "Send"
+    }
+  ],
+  "paths": {
+    "/api/send": {
+      "post": {
+        "operationId": "send",
+        "summary": "Send USDC to any address on Base, Solana, or Tempo",
+        "tags": [
+          "Send"
+        ],
+        "x-payment-info": {
+          "price": {
+            "mode": "dynamic",
+            "currency": "USD",
+            "min": "0",
+            "max": "10000"
+          },
+          "protocols": [
+            {
+              "x402": {}
+            }
+          ]
+        },
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "amount": {
+                    "type": "number",
+                    "exclusiveMinimum": 0
+                  },
+                  "address": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "network": {
+                    "type": "string",
+                    "enum": [
+                      "base",
+                      "tempo",
+                      "solana"
+                    ]
+                  }
+                },
+                "required": [
+                  "amount",
+                  "address",
+                  "network"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "402": {
+            "description": "Payment Required"
+          }
+        }
+      }
+    },
+    "/api/invite-codes": {
+      "post": {
+        "operationId": "invite-codes",
+        "summary": "Create an invite code (personal or for an organization)",
+        "tags": [
+          "Invite Codes"
+        ],
+        "security": [
+          {
+            "siwx": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "organization": {
+                    "type": "string"
+                  },
+                  "amount": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "network": {
+                    "type": "string",
+                    "enum": [
+                      "base",
+                      "tempo",
+                      "solana"
+                    ]
+                  },
+                  "maxRedemptions": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  },
+                  "note": {
+                    "type": "string"
+                  },
+                  "expiresAt": {
+                    "type": "string",
+                    "format": "date-time"
+                  }
+                },
+                "required": [
+                  "amount"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "402": {
+            "description": "Authentication Required"
+          }
+        }
+      }
+    },
+    "/api/organizations": {
+      "get": {
+        "operationId": "organizations",
+        "summary": "List your organizations",
+        "tags": [
+          "Organizations"
+        ],
+        "security": [
+          {
+            "siwx": []
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response"
+          },
+          "402": {
+            "description": "Authentication Required"
+          }
+        }
+      }
+    },
+    "/api/search": {
+      "post": {
+        "operationId": "search",
+        "summary": "Search for relevant API origins by natural language query",
+        "tags": [
+          "Search"
+        ],
+        "security": [
+          {
+            "siwx": []
+          }
+        ],
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "query": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 500
+                  },
+                  "broad": {
+                    "type": "boolean"
+                  },
+                  "limit": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 50
+                  },
+                  "page": {
+                    "type": "integer",
+                    "minimum": 1,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": [
+                  "query"
+                ]
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Successful response",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "version": {
+                      "type": "number",
+                      "const": 1
+                    },
+                    "results": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "method": {
+                            "type": "string"
+                          },
+                          "path": {
+                            "type": "string"
+                          },
+                          "summary": {
+                            "type": "string"
+                          },
+                          "semanticDescription": {
+                            "type": "string"
+                          },
+                          "authMode": {
+                            "type": "string"
+                          },
+                          "price": {
+                            "type": "string"
+                          },
+                          "score": {
+                            "type": "number"
+                          },
+                          "origin": {
+                            "type": "object",
+                            "properties": {
+                              "url": {
+                                "type": "string"
+                              },
+                              "title": {
+                                "type": "string"
+                              },
+                              "description": {
+                                "type": "string"
+                              },
+                              "protocols": {
+                                "type": "array",
+                                "items": {
+                                  "type": "string"
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    },
+                    "query": {
+                      "type": "string"
+                    },
+                    "page": {
+                      "type": "number"
+                    },
+                    "totalResults": {
+                      "type": "number"
+                    }
+                  },
+                  "required": [
+                    "version",
+                    "results",
+                    "query",
+                    "page",
+                    "totalResults"
+                  ]
+                }
+              }
+            }
+          },
+          "402": {
+            "description": "Authentication Required"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "siwx": {
+        "type": "apiKey",
+        "in": "header",
+        "name": "SIGN-IN-WITH-X"
+      }
+    }
+  }
+}

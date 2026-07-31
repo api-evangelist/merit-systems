@@ -1,0 +1,35 @@
+generated: '2026-07-20'
+method: searched
+status: published
+source: https://github.com/merit-systems/x402scan-mcp
+servers:
+  - name: x402scan
+    display_name: x402scan
+    description: Generic MCP server for calling x402-protected APIs with automatic payment handling. Make paid API calls to any x402-protected endpoint with automatic wallet management, v1/v2 protocol support, and pay-per-call USDC on Base — no API keys needed.
+    version: 0.0.11
+    transport: stdio
+    runtime: node
+    package: x402scan-mcp
+    install: npx x402scan-mcp
+    bundle: https://github.com/merit-systems/x402scan-mcp (x402scan.mcpb)
+    homepage: https://x402scan.com
+    repository: https://github.com/merit-systems/x402scan-mcp
+    license: MIT
+    tools:
+      - name: check_balance
+        description: Check wallet address and USDC balance
+      - name: query_endpoint
+        description: Probe x402 endpoint for pricing and schema
+      - name: validate_payment
+        description: Pre-flight check if payment would succeed
+      - name: execute_call
+        description: Make paid request to x402 endpoint
+  - name: agentcash
+    display_name: AgentCash
+    description: MCP server and wallet that lets AI agents call payment-protected APIs using x402 micropayments. Fund a single USDC balance and let any compatible agent (Claude, Cursor, Codex) buy data, tools, and capabilities per-call — no API keys required.
+    transport: stdio
+    runtime: node
+    install: npx agentcash@latest onboard
+    bundle: https://agentcash.dev/agentcash.mcpb
+    homepage: https://agentcash.dev
+    docs: https://agentcash.dev/install

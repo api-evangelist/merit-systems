@@ -1,0 +1,29 @@
+generated: '2026-07-20'
+method: searched
+source: https://github.com/merit-systems/agentcash-router/blob/main/CHANGELOG.md
+scheme: changesets-semver
+subject: "@agentcash/router"
+current_version: 1.19.1
+note: >-
+  Merit's most actively-versioned public developer artifact is the
+  @agentcash/router library (Changesets/semver). Merit also publishes a monthly
+  "State of Agentic Commerce" report on the company blog.
+entries:
+  - version: 1.19.1
+    type: patch
+    highlights:
+      - Use mppx's public SSE session-controller type for metered streaming routes.
+  - version: 1.19.0
+    type: minor
+    breaking: true
+    highlights:
+      - Enforce CAIP-2 network identifiers at the type level; new exported X402Network type (`eip155:${string}` | `solana:${string}`).
+      - Friendly names like 'base-sepolia' are now rejected at compile time instead of throwing at construction.
+      - Documented the keyless local-dev path; placeholder CDP keys serve correct 402 challenges via the hardcoded facilitator baseline.
+  - version: 1.18.0
+    type: minor
+    highlights:
+      - Add conditional settlement via `beforeSettle` returning 'skip' — a paid route can return its 2xx body without charging.
+company_updates:
+  - title: "State of Agentic Commerce: July 2026"
+    url: https://merit.systems/blog/state-of-agentic-commerce-july-2026

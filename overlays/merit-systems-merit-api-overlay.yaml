@@ -1,0 +1,15 @@
+overlay: 1.0.0
+info:
+  title: API Evangelist enhancements for Merit Systems API
+  version: 1.0.0
+extends: openapi/merit-systems-merit-api-openapi.yml
+actions:
+  - target: $.info
+    update:
+      x-apievangelist-enriched: '2026-07-20'
+      x-apievangelist-provider: merit-systems
+      x-api-category: [open-source-funding, payments, balances]
+  - target: $.info
+    update:
+      x-auth-model: api-key
+      x-error-envelope: '{ status, message, request_id }'

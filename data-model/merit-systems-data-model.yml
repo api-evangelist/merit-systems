@@ -1,0 +1,64 @@
+generated: '2026-07-20'
+method: derived
+source:
+  - openapi/merit-systems-merit-api-openapi.yml
+  - openapi/merit-systems-agentcash-openapi.json
+entities:
+  - name: User
+    api: Merit Systems API
+    identifiers: [user_id, login]
+    fields: [user_id, login, balance]
+    notes: A GitHub user; identified by numeric user_id or GitHub login.
+  - name: Repository
+    api: Merit Systems API
+    identifiers: [repo_id, owner/repo]
+    fields: [repo_id, owner, repo, balance]
+  - name: Balance
+    api: Merit Systems API
+    fields: [balance (Amount)]
+    notes: A USDC balance held by a User or Repository.
+  - name: Amount
+    api: Merit Systems API
+    fields: [raw, formatted]
+  - name: OutgoingPayment
+    api: Merit Systems API
+    fields: [type, sender_id, recipient_id, repo_id, amount, token, timestamp, tx_hash, group_id, claim_status, claim_deadline]
+    variants: [UserPayment, RepoFund]
+    notes: An on-chain payment; UserPayment targets a recipient user, RepoFund targets a repo.
+  - name: Organization
+    api: AgentCash
+    notes: Grouping for AgentCash invite codes and membership.
+  - name: InviteCode
+    api: AgentCash
+    fields: [organization, amount, network, maxRedemptions, note, expiresAt]
+  - name: Origin
+    api: AgentCash
+    fields: [url, title, description, protocols, x402OriginId, mppOriginId]
+    notes: A payment-protected API origin discoverable via AgentCash search.
+relationships:
+  - from: UserBalance
+    to: User
+    type: belongs_to
+    via: user_id
+  - from: RepoBalance
+    to: Repository
+    type: belongs_to
+    via: repo_id
+  - from: OutgoingPayment
+    to: User
+    type: belongs_to
+    via: sender_id
+  - from: OutgoingPayment
+    to: User
+    type: has_one
+    via: recipient_id
+    when: type == UserPayment
+  - from: OutgoingPayment
+    to: Repository
+    type: has_one
+    via: repo_id
+    when: type == RepoFund
+  - from: InviteCode
+    to: Organization
+    type: belongs_to
+    via: organization

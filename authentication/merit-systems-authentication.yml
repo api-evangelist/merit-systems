@@ -1,0 +1,44 @@
+generated: '2026-07-20'
+method: searched
+source:
+  - https://github.com/merit-systems/sdk/blob/master/api.md
+  - https://agentcash.dev/openapi.json
+summary:
+  types: [apiKey, x402, mpp, siwx]
+  api_key_in: [header]
+  notes: >-
+    Two distinct auth models across Merit's surfaces. The Merit Systems REST API
+    uses a static API key header. AgentCash uses wallet-based auth: free
+    "SIWX" (Sign In With X-chain wallet) endpoints via a signed header, and paid
+    endpoints settled per-call over x402/MPP micropayments (HTTP 402) — no API
+    keys required for paid calls.
+schemes:
+  - name: apiKey
+    api: Merit Systems API
+    type: apiKey
+    in: header
+    parameter: x-api-key
+    source: openapi/merit-systems-merit-api-openapi.yml
+  - name: siwx
+    api: AgentCash
+    type: apiKey
+    in: header
+    parameter: SIGN-IN-WITH-X
+    description: Sign In With X — wallet-based identity header for free AgentCash endpoints (search, invite-codes, organizations).
+    source: openapi/merit-systems-agentcash-openapi.json
+  - name: x402
+    api: AgentCash
+    type: payment
+    scheme: x402
+    description: >-
+      HTTP-native micropayment protocol. Paid endpoints (e.g. POST /api/send)
+      return 402 Payment Required; the agent's wallet settles the payment in
+      USDC (Base, Solana, or Tempo) inside the same request. No accounts or API
+      keys.
+    networks: [base, solana, tempo]
+    currency: USDC
+  - name: mpp
+    api: AgentCash
+    type: payment
+    scheme: mpp
+    description: Machine Payments Protocol — per-request server payment, alternative rail to x402.

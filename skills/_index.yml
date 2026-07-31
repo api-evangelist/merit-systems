@@ -1,0 +1,21 @@
+generated: '2026-07-20'
+method: searched
+source: https://agentcash.dev/skill.md
+note: >-
+  Merit Systems publishes agent skills for its products. The AgentCash
+  onboarding skill descriptor is captured verbatim here. The full skill
+  registries live in the provider's public repos (agentcash-skills,
+  x402scan-skills) and ship as a Claude Code plugin.
+skills:
+  - file: merit-systems-agentcash-onboarding.md
+    name: AgentCash Onboarding
+    description: Set up AgentCash for your agent — wallet, core skill, and optional invite credits
+    source: https://agentcash.dev/skill.md
+    api: openapi/merit-systems-agentcash-openapi.json
+provider_skill_registries:
+  - name: agentcash-skills
+    url: https://github.com/merit-systems/agentcash-skills
+    skills: [agentcash-onboarding, agentcash, data-enrichment, email, local-search, media-generation, news-shopping, people-property, phone-calls, social-intelligence, social-scraping, upload-and-share, web-research]
+  - name: x402scan-skills
+    url: https://github.com/merit-systems/x402scan-skills
+    skills: [data-enrichment, local-search, media-generation, news-shopping, people-property, social-intelligence, upload-and-share, wallet, web-research]

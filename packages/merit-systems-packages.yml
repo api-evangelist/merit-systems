@@ -1,0 +1,45 @@
+generated: '2026-07-20'
+method: searched
+source: https://www.npmjs.com/org/merit-systems
+packages:
+  - language: javascript
+    registry: npm
+    name: "@merit-systems/sdk"
+    description: TypeScript SDK for the Merit Systems API
+    url: https://www.npmjs.com/package/@merit-systems/sdk
+    source_code: https://github.com/merit-systems/sdk
+    install: npm install @merit-systems/sdk
+    official: true
+  - language: typescript
+    registry: npm
+    name: "@merit-systems/echo-typescript-sdk"
+    description: TypeScript SDK for the Echo platform (the "User Pays" AI SDK)
+    url: https://www.npmjs.com/package/@merit-systems/echo-typescript-sdk
+    source_code: https://github.com/merit-systems/echo
+    install: npm install @merit-systems/echo-typescript-sdk
+    official: true
+  - language: typescript
+    registry: npm
+    name: "@agentcash/router"
+    version: 1.19.1
+    description: Unified route builder for Next.js App Router APIs with x402, MPP, SIWX, and API key auth
+    url: https://www.npmjs.com/package/@agentcash/router
+    source_code: https://github.com/merit-systems/agentcash-router
+    install: npm install @agentcash/router
+    official: true
+  - language: typescript
+    registry: npm
+    name: "x402scan-mcp"
+    version: 0.0.11
+    description: Generic MCP server for calling x402-protected APIs with automatic payment handling
+    url: https://www.npmjs.com/package/x402scan-mcp
+    source_code: https://github.com/merit-systems/x402scan-mcp
+    install: npx x402scan-mcp
+    official: true
+  - language: typescript
+    registry: npm
+    name: "agentcash"
+    description: AgentCash CLI — onboard a wallet and call x402/MPP paid APIs per-call
+    url: https://www.npmjs.com/package/agentcash
+    install: npx agentcash@latest onboard
+    official: true

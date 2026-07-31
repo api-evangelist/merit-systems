@@ -1,0 +1,37 @@
+generated: '2026-07-20'
+method: probed
+note: >-
+  Probed the .well-known discovery surface across Merit's public hosts on
+  2026-07-20. No security.txt or discovery documents were served (all 404).
+  A published llms.txt was found at the site root of merit.systems and
+  agentcash.dev (captured under llms/ and referenced below), and AgentCash
+  publishes an OpenAPI catalog at agentcash.dev/openapi.json.
+hosts:
+  - host: https://merit.systems
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 200
+        note: root-level llms.txt (see llms/merit-systems-llms.txt)
+  - host: https://agentcash.dev
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 200
+      - path: /openapi.json
+        status: 200
+        note: AgentCash OpenAPI catalog (see openapi/merit-systems-agentcash-openapi.json)
+  - host: https://echo.merit.systems
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404
+  - host: https://x402scan.com
+    documents:
+      - path: /.well-known/security.txt
+        status: 404
+      - path: /llms.txt
+        status: 404

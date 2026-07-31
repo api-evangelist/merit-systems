@@ -1,0 +1,50 @@
+generated: '2026-07-20'
+method: searched
+source:
+  - https://github.com/merit-systems/sdk/blob/master/api.md
+  - https://agentcash.dev/openapi.json
+authentication:
+  style: >-
+    Merit Systems API uses a static x-api-key header. AgentCash uses wallet auth:
+    SIWX signed header for free endpoints, x402/MPP micropayments for paid ones.
+  see: authentication/merit-systems-authentication.yml
+versioning:
+  scheme: uri-path
+  current: v1
+  example: https://api.merit.systems/v1
+pagination:
+  style: page-number
+  request_params:
+    page: Page number (default 1)
+    page_size: Results per page (default 50, max 100)
+  response_fields:
+    items: Array of results
+    page: Current page number
+    page_size: Page size
+    total_count: Total number of records
+    has_next: Whether another page exists
+  filters:
+    group_id: Filter payments by group ID (UUID)
+request_tracing:
+  field: request_id
+  location: error response body
+  description: Errors include an optional request_id for support and correlation.
+error_envelope:
+  shape: '{ status: number, message: string, request_id?: string }'
+  format: json
+  see: errors/merit-systems-problem-types.yml
+  sdk_error_types: [UnauthorizedError, NotFoundError, BadRequestError, InternalServerError, MeritError]
+payments:
+  protocols: [x402, mpp]
+  status_code: 402
+  currency: USDC
+  networks: [base, solana, tempo]
+  description: >-
+    AgentCash paid endpoints follow the x402 flow — the server responds 402
+    Payment Required and the client's wallet settles payment in-band. Pricing
+    can be dynamic (per-call), advertised via x-payment-info on the operation.
+idempotency:
+  supported: false
+  note: No idempotency-key header is documented for the Merit or AgentCash REST APIs.
+rate_limiting:
+  documented: false
