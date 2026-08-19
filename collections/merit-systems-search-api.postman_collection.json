@@ -1,0 +1,194 @@
+{
+  "item": [
+    {
+      "id": "32c70116-7a76-4120-87b4-0f15b672007e",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "e4656d1b-9433-4b05-80d6-3b7d0b157ef9",
+          "name": "Search for relevant API origins by natural language query",
+          "request": {
+            "name": "Search for relevant API origins by natural language query",
+            "description": {},
+            "url": {
+              "path": [
+                "api",
+                "search"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              },
+              {
+                "key": "Accept",
+                "value": "application/json"
+              }
+            ],
+            "method": "POST",
+            "auth": {
+              "type": "apikey",
+              "apikey": [
+                {
+                  "key": "key",
+                  "value": "SIGN-IN-WITH-X"
+                },
+                {
+                  "key": "value",
+                  "value": "{{apiKey}}"
+                },
+                {
+                  "key": "in",
+                  "value": "header"
+                }
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"query\": \"<string>\",\n  \"broad\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "response": [
+            {
+              "id": "0db4fe72-998d-49bc-99b2-b981ec738266",
+              "name": "Successful response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SIGN-IN-WITH-X",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/json"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"broad\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/json"
+                }
+              ],
+              "body": "{\n  \"version\": 6781.387485639459,\n  \"results\": [\n    {\n      \"method\": \"string\",\n      \"path\": \"string\",\n      \"summary\": \"string\",\n      \"semanticDescription\": \"string\",\n      \"authMode\": \"string\",\n      \"price\": \"string\",\n      \"score\": 9376.922348370836,\n      \"origin\": {\n        \"url\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"protocols\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    },\n    {\n      \"method\": \"string\",\n      \"path\": \"string\",\n      \"summary\": \"string\",\n      \"semanticDescription\": \"string\",\n      \"authMode\": \"string\",\n      \"price\": \"string\",\n      \"score\": 2507.4517350485025,\n      \"origin\": {\n        \"url\": \"string\",\n        \"title\": \"string\",\n        \"description\": \"string\",\n        \"protocols\": [\n          \"string\",\n          \"string\"\n        ]\n      }\n    }\n  ],\n  \"query\": \"string\",\n  \"page\": 5935.211975590999,\n  \"totalResults\": 6346.257318803796\n}",
+              "cookie": [],
+              "_postman_previewlanguage": "json"
+            },
+            {
+              "id": "c962638a-5c3e-41d3-a30e-8be68de70d80",
+              "name": "Authentication Required",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "api",
+                    "search"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "SIGN-IN-WITH-X",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\n  \"query\": \"<string>\",\n  \"broad\": \"<boolean>\",\n  \"limit\": \"<integer>\",\n  \"page\": \"<integer>\"\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                }
+              },
+              "status": "Payment Required",
+              "code": 402,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://agentcash.dev",
+      "key": "baseUrl"
+    }
+  ],
+  "info": {
+    "_postman_id": "9c1b413b-7536-47de-a27c-64854602c2d8",
+    "name": "AgentCash Balances Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Wallet management, search, and payment APIs for AgentCash.\n\nContact Support:\n Name: Merit Systems",
+      "type": "text/plain"
+    }
+  }
+}

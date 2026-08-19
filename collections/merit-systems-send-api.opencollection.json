@@ -1,0 +1,33 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgentCash Balances Send API",
+    "version": "0.1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Send",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Send USDC to any address on Base, Solana, or Tempo",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agentcash.dev/api/send",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            }
+          },
+          "docs": "Send USDC to any address on Base, Solana, or Tempo"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

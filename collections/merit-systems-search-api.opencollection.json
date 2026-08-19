@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgentCash Balances Search API",
+    "version": "0.1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search for relevant API origins by natural language query",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agentcash.dev/api/search",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SIGN-IN-WITH-X",
+              "value": "{{SIGN-IN-WITH-X}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Search for relevant API origins by natural language query"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

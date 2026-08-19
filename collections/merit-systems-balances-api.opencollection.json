@@ -1,0 +1,95 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgentCash Balances API",
+    "version": "0.1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Balances",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Get user balance by GitHub login",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agentcash.dev/users/:login/balance",
+            "params": [
+              {
+                "name": "login",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get user balance by GitHub login"
+        },
+        {
+          "info": {
+            "name": "Get user balance by user ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agentcash.dev/user/:user_id/balance",
+            "params": [
+              {
+                "name": "user_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get user balance by user ID"
+        },
+        {
+          "info": {
+            "name": "Get repository balance by owner/repo name",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agentcash.dev/repos/:owner/:repo/balance",
+            "params": [
+              {
+                "name": "owner",
+                "value": "",
+                "type": "path"
+              },
+              {
+                "name": "repo",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get repository balance by owner/repo name"
+        },
+        {
+          "info": {
+            "name": "Get repository balance by repository ID",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://agentcash.dev/repositories/:repo_id/balance",
+            "params": [
+              {
+                "name": "repo_id",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Get repository balance by repository ID"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

@@ -1,0 +1,39 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "AgentCash Balances Invite Codes API",
+    "version": "0.1.2"
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Invite Codes",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create an invite code (personal or for an organization)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://agentcash.dev/api/invite-codes",
+            "body": {
+              "type": "json",
+              "data": "{}"
+            },
+            "auth": {
+              "type": "apikey",
+              "key": "SIGN-IN-WITH-X",
+              "value": "{{SIGN-IN-WITH-X}}",
+              "placement": "header"
+            }
+          },
+          "docs": "Create an invite code (personal or for an organization)"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
