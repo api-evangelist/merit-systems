@@ -41,6 +41,17 @@ tags:
 - Payments
 - x402
 - Micropayments
+- MCP
+- Stablecoins
+- API Discovery
+- Open-Source
+- Developer Tools
+tags_raw:
+- Company
+- Agentic Commerce
+- Payments
+- x402
+- Micropayments
 - Model Context Protocol
 - Stablecoins
 - API Discovery
@@ -88,6 +99,8 @@ apis:
   humanURL: https://github.com/merit-systems/sdk/blob/master/api.md
   baseURL: https://api.merit.systems/v1
   tags:
+  - Organization
+  tags_raw:
   - Organizations
   properties:
   - type: OpenAPI
