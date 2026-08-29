@@ -11,6 +11,18 @@ description: >-
   the Echo "User Pays" AI SDK, and the Merit Terminal financial stack for
   funding open-source contributors and repositories. Backed by a $10M seed
   round led by a16z and Blockchain Capital.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: true
+  label: Hosted service · you call their endpoint
+  confidence: high
+  source:
+  - openapi
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 accessModel:
   pricing: unknown
   onboarding: self-serve
