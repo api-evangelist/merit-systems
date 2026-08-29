@@ -1,24 +1,31 @@
 {
   "provider": "merit-systems",
   "sources": [
-    "merit-systems-balances-api-openapi.yml",
-    "merit-systems-invite-codes-api-openapi.yml",
-    "merit-systems-organizations-api-openapi.yml",
-    "merit-systems-payments-api-openapi.yml",
-    "merit-systems-search-api-openapi.yml",
-    "merit-systems-send-api-openapi.yml"
+    "_original/merit-systems-agentcash-openapi.json",
+    "_original/merit-systems-merit-api-openapi.yml"
   ],
   "outputs": [
-    "merit-systems-balances-api-openapi.yml",
     "merit-systems-invite-codes-api-openapi.yml",
     "merit-systems-organizations-api-openapi.yml",
-    "merit-systems-payments-api-openapi.yml",
     "merit-systems-search-api-openapi.yml",
-    "merit-systems-send-api-openapi.yml"
+    "merit-systems-send-api-openapi.yml",
+    "merit-systems-balances-api-openapi.yml",
+    "merit-systems-payments-api-openapi.yml"
   ],
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (2 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "merit-systems-agentcash-openapi.json: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "merit-systems-merit-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0"
+  ],
+  "skipped": [
+    "merit-systems-balances-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "merit-systems-invite-codes-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "merit-systems-organizations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "merit-systems-payments-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "merit-systems-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "merit-systems-send-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }
