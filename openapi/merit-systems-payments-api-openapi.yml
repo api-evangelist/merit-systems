@@ -59,20 +59,17 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
-  responses:
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
   schemas:
+    Amount:
+      type: object
+      properties:
+        raw:
+          type: string
+        formatted:
+          type: string
+      required:
+      - raw
+      - formatted
     Error:
       type: object
       description: Standard error envelope returned on non-2xx responses.
@@ -129,16 +126,6 @@ components:
       - token
       - timestamp
       - tx_hash
-    Amount:
-      type: object
-      properties:
-        raw:
-          type: string
-        formatted:
-          type: string
-      required:
-      - raw
-      - formatted
     PaginatedOutgoingPayments:
       type: object
       properties:
@@ -160,6 +147,19 @@ components:
       - page
       - total_count
       - has_next
+  responses:
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   securitySchemes:
     apiKey:
       type: apiKey

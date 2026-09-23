@@ -112,6 +112,29 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    Amount:
+      type: object
+      properties:
+        raw:
+          type: string
+        formatted:
+          type: string
+      required:
+      - raw
+      - formatted
+    Error:
+      type: object
+      description: Standard error envelope returned on non-2xx responses.
+      properties:
+        status:
+          type: integer
+        message:
+          type: string
+        request_id:
+          type: string
+      required:
+      - status
+      - message
     RepoBalance:
       type: object
       properties:
@@ -141,38 +164,15 @@ components:
       - user_id
       - login
       - balance
-    Error:
-      type: object
-      description: Standard error envelope returned on non-2xx responses.
-      properties:
-        status:
-          type: integer
-        message:
-          type: string
-        request_id:
-          type: string
-      required:
-      - status
-      - message
-    Amount:
-      type: object
-      properties:
-        raw:
-          type: string
-        formatted:
-          type: string
-      required:
-      - raw
-      - formatted
   responses:
-    Unauthorized:
-      description: Invalid API key
+    NotFound:
+      description: Resource not found
       content:
         application/json:
           schema:
             $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
+    Unauthorized:
+      description: Invalid API key
       content:
         application/json:
           schema:
