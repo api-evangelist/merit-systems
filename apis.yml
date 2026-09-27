@@ -58,7 +58,7 @@ tags:
 - MCP
 - Stablecoins
 - API Discovery
-- Open-Source
+- Open Source
 - Developer Tools
 tags_raw:
 - Company
@@ -71,6 +71,7 @@ tags_raw:
 - API Discovery
 - Open Source
 - Developer Tools
+- Open-Source
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -231,3 +232,11 @@ x-enrichment:
   status: enriched
   artifacts_added: 21
   pass: local-v1
+x-x402:
+  verified: true
+  probed: '2026-09-24'
+  url: "https://agentcash.dev/api/organizations"
+  evidence:
+  - "header:payment-required"
+  - "body:x402Version"
+  control: 404
