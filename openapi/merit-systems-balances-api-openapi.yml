@@ -112,6 +112,19 @@ paths:
           $ref: '#/components/responses/NotFound'
 components:
   schemas:
+    UserBalance:
+      type: object
+      properties:
+        user_id:
+          type: integer
+        login:
+          type: string
+        balance:
+          $ref: '#/components/schemas/Amount'
+      required:
+      - user_id
+      - login
+      - balance
     Error:
       type: object
       description: Standard error envelope returned on non-2xx responses.
@@ -151,19 +164,6 @@ components:
       required:
       - raw
       - formatted
-    UserBalance:
-      type: object
-      properties:
-        user_id:
-          type: integer
-        login:
-          type: string
-        balance:
-          $ref: '#/components/schemas/Amount'
-      required:
-      - user_id
-      - login
-      - balance
   responses:
     Unauthorized:
       description: Invalid API key
