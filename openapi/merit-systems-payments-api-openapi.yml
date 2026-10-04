@@ -59,28 +59,30 @@ paths:
         '401':
           $ref: '#/components/responses/Unauthorized'
 components:
+  responses:
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequest:
+      description: Bad request
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
-    PaginatedOutgoingPayments:
+    Amount:
       type: object
       properties:
-        items:
-          type: array
-          items:
-            $ref: '#/components/schemas/OutgoingPayment'
-        page_size:
-          type: integer
-        page:
-          type: integer
-        total_count:
-          type: integer
-        has_next:
-          type: boolean
+        raw:
+          type: string
+        formatted:
+          type: string
       required:
-      - items
-      - page_size
-      - page
-      - total_count
-      - has_next
+      - raw
+      - formatted
     OutgoingPayment:
       type: object
       properties:
@@ -137,29 +139,27 @@ components:
       required:
       - status
       - message
-    Amount:
+    PaginatedOutgoingPayments:
       type: object
       properties:
-        raw:
-          type: string
-        formatted:
-          type: string
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/OutgoingPayment'
+        page_size:
+          type: integer
+        page:
+          type: integer
+        total_count:
+          type: integer
+        has_next:
+          type: boolean
       required:
-      - raw
-      - formatted
-  responses:
-    BadRequest:
-      description: Bad request
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+      - items
+      - page_size
+      - page
+      - total_count
+      - has_next
   securitySchemes:
     apiKey:
       type: apiKey
