@@ -48,7 +48,7 @@ x-tier: enriched
 x-tier-reason: portfolio-lead
 specificationVersion: '0.23'
 created: '2026-07-17'
-modified: '2026-07-20'
+modified: '2026-10-06'
 tags:
 - Company
 - Agentic Commerce
@@ -169,6 +169,8 @@ apis:
   - type: Documentation
     url: https://agentcash.dev/docs
 common:
+- url: https://merit.systems/blog/rss.xml
+  type: BlogRSS
 - type: Website
   url: https://merit.systems
 - type: DeveloperPortal
