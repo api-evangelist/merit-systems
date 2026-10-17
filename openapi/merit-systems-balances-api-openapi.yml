@@ -111,7 +111,30 @@ paths:
         '404':
           $ref: '#/components/responses/NotFound'
 components:
+  responses:
+    Unauthorized:
+      description: Invalid API key
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    NotFound:
+      description: Resource not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
   schemas:
+    Amount:
+      type: object
+      properties:
+        raw:
+          type: string
+        formatted:
+          type: string
+      required:
+      - raw
+      - formatted
     RepoBalance:
       type: object
       properties:
@@ -128,29 +151,6 @@ components:
       - owner
       - repo
       - balance
-    Amount:
-      type: object
-      properties:
-        raw:
-          type: string
-        formatted:
-          type: string
-      required:
-      - raw
-      - formatted
-    UserBalance:
-      type: object
-      properties:
-        user_id:
-          type: integer
-        login:
-          type: string
-        balance:
-          $ref: '#/components/schemas/Amount'
-      required:
-      - user_id
-      - login
-      - balance
     Error:
       type: object
       description: Standard error envelope returned on non-2xx responses.
@@ -164,19 +164,19 @@ components:
       required:
       - status
       - message
-  responses:
-    Unauthorized:
-      description: Invalid API key
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
-    NotFound:
-      description: Resource not found
-      content:
-        application/json:
-          schema:
-            $ref: '#/components/schemas/Error'
+    UserBalance:
+      type: object
+      properties:
+        user_id:
+          type: integer
+        login:
+          type: string
+        balance:
+          $ref: '#/components/schemas/Amount'
+      required:
+      - user_id
+      - login
+      - balance
   securitySchemes:
     apiKey:
       type: apiKey
