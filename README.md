@@ -64,6 +64,131 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Merit Systems is a company surfaced as a portfolio company of a16z and added to the API Evangelist network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+Merit Systems builds the infrastructure for open agentic commerce — the discovery and payment rails that let AI agents find and pay for the APIs, data, and services they need. Merit originated the "open agentic commerce" framing and the x402 ecosystem index (x402scan), and ships a developer stack for pay-per-call APIs: AgentCash (an MCP server, CLI, and USDC wallet that lets any agent call payment-protected APIs over x402/MPP micropayments), @agentcash/router (a framework for building x402/MPP-compatible endpoints), the Echo "User Pays" AI SDK, and the Merit Terminal financial stack for funding open-source contributors and repositories. Backed by a $10M seed round led by a16z and Blockchain Capital.
 
-Backed by: a16z
+**Areas:** Company · Agentic Commerce · Payments · x402 · Micropayments · MCP · Stablecoins · API Discovery · Open Source · Developer Tools · Fintech
+
+## Merit Systems on APIs.io
+
+Everything profiled for Merit Systems is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/merit-systems/](https://apis.io/providers/merit-systems/)** — or go straight to one of the APIs or properties below.
+
+### APIs (6)
+
+- [Merit Systems Balances API](https://apis.io/apis/merit-systems/merit-systems-balances-api/) — The Balances API from Merit Systems — 4 operation(s) for balances.
+- [Merit Systems Invite Codes API](https://apis.io/apis/merit-systems/merit-systems-invite-codes-api/) — The Invite Codes API from Merit Systems — 1 operation(s) for invite codes.
+- [Merit Systems Organizations API](https://apis.io/apis/merit-systems/merit-systems-organizations-api/) — The Organizations API from Merit Systems — 1 operation(s) for organizations.
+- [Merit Systems Payments API](https://apis.io/apis/merit-systems/merit-systems-payments-api/) — The Payments API from Merit Systems — 1 operation(s) for payments.
+- [Merit Systems Search API](https://apis.io/apis/merit-systems/merit-systems-search-api/) — The Search API from Merit Systems — 1 operation(s) for search.
+- [Merit Systems Send API](https://apis.io/apis/merit-systems/merit-systems-send-api/) — The Send API from Merit Systems — 1 operation(s) for send.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [merit-systems-mcp.yml](https://apis.io/servers/merit-systems/merit-systems-mcp-yml/)
+
+#### Agentic access (1)
+
+Which operations an agent can call, which act, and which need a human in the loop.
+
+- [Merit Systems Agentic Access](https://apis.io/agentic-access/merit-systems/merit-systems-agentic-access/)
+
+#### Collections (6)
+
+Postman and Open Collection request collections.
+
+- [AgentCash Balances API](https://apis.io/collections/merit-systems/open-merit-systems-balances-api/)
+- [AgentCash Balances Invite Codes API](https://apis.io/collections/merit-systems/open-merit-systems-invite-codes-api/)
+- [AgentCash Balances Organizations API](https://apis.io/collections/merit-systems/open-merit-systems-organizations-api/)
+- [AgentCash Balances Payments API](https://apis.io/collections/merit-systems/open-merit-systems-payments-api/)
+- [AgentCash Balances Search API](https://apis.io/collections/merit-systems/open-merit-systems-search-api/)
+- [AgentCash Balances Send API](https://apis.io/collections/merit-systems/open-merit-systems-send-api/)
+
+#### Overlays (2)
+
+OpenAPI overlays, including conversational phrasing for each operation.
+
+- [Merit Systems Agentcash Overlay](https://apis.io/overlays/merit-systems/merit-systems-agentcash-overlay/)
+- [Merit Systems Merit Api Overlay](https://apis.io/overlays/merit-systems/merit-systems-merit-api-overlay/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Merit Systems Authentication](https://apis.io/security/merit-systems/merit-systems-authentication/)
+- [Merit Systems Vulnerability Disclosure](https://apis.io/security/merit-systems/merit-systems-vulnerability-disclosure/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://merit.systems)
+- [Documentation](https://agentcash.dev/docs)
+- [Getting started](https://agentcash.dev/install)
+- [API reference](https://github.com/merit-systems/sdk/blob/master/api.md)
+- [Sign up](https://agentcash.dev/onboard)
+- [Support](https://github.com/merit-systems/help-us)
+- [Blog](https://merit.systems/blog)
+- [Security](https://github.com/merit-systems/agentcash-router/blob/main/SECURITY.md)
+- [Terms of service](https://merit.systems/terms)
+- [Privacy policy](https://merit.systems/privacy)
+- [GitHub](https://github.com/merit-systems)
+
+## API Evangelist rating
+
+**Kin Score 45.3** — developing · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 75.0 |
+| Contract quality | 36.0 |
+| Contract governance | 4.5 |
+| Operational transparency | 28.9 |
+| Developer ergonomics | 85.7 |
+| Access clarity | 34.2 |
+
+**Agent readiness 29.1** — agent-ready
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | — |
+| MCP Server | documented (partial credit) |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | derived (partial credit) |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | yes |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | paginated |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 27.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/merit-systems/](https://apis.io/providers/merit-systems/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Merit Systems: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/merit-systems/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
